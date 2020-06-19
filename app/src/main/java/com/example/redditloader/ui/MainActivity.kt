@@ -1,5 +1,6 @@
 package com.example.redditloader.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -18,15 +19,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
-    private val mRedditListAdapter = RedditListAdapter()
+    private val mRedditListAdapter = RedditListAdapter(this::navigateToSecondActivity)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initViews()
         setupViewModel()
-        viewModel.getImages()
+        loadData()
         setUpObservers()
+    }
+
+    private fun loadData() {
+        viewModel.getImages()
     }
 
     private fun setupViewModel() {
@@ -54,6 +59,12 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, state.message, Toast.LENGTH_SHORT).show()
                 }
             }
+        })
+    }
+
+    private fun navigateToSecondActivity(url: String) {
+        startActivity(Intent(this, SecondActivity::class.java).apply {
+            putExtra(SecondActivity.KEY_SECOND_ACTIVITY, url)
         })
     }
 
