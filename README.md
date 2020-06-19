@@ -19,7 +19,7 @@ A Reddit Image Loader with custom image loader library and multimodule setup.
 
 ## About
 - It load the imagees from [Reddit API](https://www.reddit.com/r/images/hot.json).
-- It loads the image Asynchronously and uses the custom ImageLoader](https://github.com/Zaraki596/RedditLoader/blob/master/imageloader/src/main/java/com/example/imageloader/ImageLoader.kt).
+- It loads the image Asynchronously and uses the custom [ImageLoader](https://github.com/Zaraki596/RedditLoader/blob/master/imageloader/src/main/java/com/example/imageloader/ImageLoader.kt).
 - It have multimodule setup with incremental compile time speed.
 
 ## Built With 🛠
